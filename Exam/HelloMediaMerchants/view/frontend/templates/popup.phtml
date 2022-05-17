@@ -1,0 +1,28 @@
+<?php
+/** @var $block \Exam\HelloMediaMerchants\Block\Popup */
+?>
+<div id="popup-modal">
+    <h1><?php echo $block->getContent(); ?></h1>
+</div>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ],function($, modal) {
+
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            modalClass: 'popup-modal',
+            buttons: []
+        };
+
+        var popup = modal(options, $('#popup-modal'));
+
+        $( document ).ready(function() {
+            $('#popup-modal').modal('openModal');
+        });     
+    });
+</script>
